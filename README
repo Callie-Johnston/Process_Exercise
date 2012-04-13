@@ -1,1 +1,24 @@
-An application that creates child processes and read/writes.
+An application that creates child processes and read/writes from both the
+child and parent.
+
+Discussion
+
+It is a good use of object-oriented programming. The idea of object oriented
+programming is to have the class encapsulate functions that operate on that
+class and only that class. All the information is inside the class and needs
+to be accessed thgouh functions for other classes to get the data. 
+In this program each function has its job and only does that. The reading is 
+just in charge of reading data and the same thing applies with the writing, 
+constructing, and destruction. 
+
+The easiest way to have different destructors would to have some variable
+that is passed to and set in the constructor and then used in a switch 
+statement in the destructor to tell which destructor to use. The only issue 
+with that is not setting the variable which would call for a default option 
+that the user would have to be aware of in the switch statement.
+
+The child would send a signal to the parent process that would indicate that 
+it has terminated. The parent would then use sigaction to see that the
+signal has been sent and read it. The signal handler has to be configured for
+this to be able to happen. The parent would then have to read from the child
+write pipe before it closes.

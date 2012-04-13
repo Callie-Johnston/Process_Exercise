@@ -16,29 +16,25 @@ int main(int argc, char *argv[])
 	std::cerr << "Arg: " << argv[nn] << std::endl;
 	args.push_back(argv[nn]);
     }
-    args.push_back( NULL );
+ //   args.push_back( NULL );
 
-    
-    string line;
-    string output;
 
     {
 	Process myproc(args,true);
-	sleep(5);
-    /* write/read test
+	//sleep(5);
+    // write/read test
     for(int n=0; n<5; ++n) {
-	stringstream ss(line);
-	ss << "This is test " << n << endl;
-	line = ss.str();
-	cerr << "calling write with line=" << line << "END" << endl;
-	myproc.write(line);
-	output = myproc.read();
+	stringstream ss;
+	ss << "1+ " << n << endl;
+	cerr << "calling write with line=" << ss.str() << "END" << endl;
+	myproc.write(ss.str());
+	string output = myproc.read();
 	cerr << "output from process: " << output << "END" << endl;
     }
-    */
+}
+    
 	cerr << "Process object destroyed" << endl;
-    }
     cerr << "Program exiting.  Confirm child process has been cleaned up." << endl;
-    sleep(5);
+    //sleep(5);
     return(EXIT_SUCCESS);
 }

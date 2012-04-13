@@ -16,7 +16,6 @@ class Process
 public:
     //The extra bool argument can be used to enable verbose messages
     Process(const std::vector<char*>& args, bool verbose);
-    Process(const std::vector<char*>& args);
     
     // prevent copying and assignment
     Process(const Process&);
